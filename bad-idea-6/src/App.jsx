@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './components/Home';
+import PostReview from "./components/apiAdapters/postReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 
@@ -20,6 +21,7 @@ function App() {
       <div id="main-section">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/newPost" element={<PostReview />} />
           <Route path="/AllReviews" element={<AllReviews />} />
         </Routes>
       </div>
