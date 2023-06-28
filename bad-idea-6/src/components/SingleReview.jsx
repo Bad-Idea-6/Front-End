@@ -7,8 +7,8 @@ import BASEURL from "./apiAdapters";
 const APIURL = BASEURL;
 
 
-const SingleReview = ({ review }) => {
-    const [rev, setRev] = useState(null)
+const SingleReview = ({ SingleReview }) => {
+    const [review, setReview] = useState(null)
     const { reviewId } = useParams()
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const SingleReview = ({ review }) => {
             try {
                 const response = await fetch(`${APIURL}/Reviews/${reviewId}`) //// need api url here
                 const translatedData = await response.json();
-                setRev(translatedData) /// .posts may need changed depending on api
+                setReview(translatedData) /// .posts may need changed depending on api
                 //  console.log(translatedData)
                 console.log(Review)
             } catch (error) {
@@ -33,13 +33,13 @@ const SingleReview = ({ review }) => {
         <>
             {
 
-                reviewId && reviewId.name ?
+                review && review.reviewId ?
 
                     <div className="Single-Review">
-                        <h2>{rev.title}
+                        <h2>{review.title}
                         </h2>
-                        <h3>User: {rev.author}</h3>
-                        <h3>{rev.ideaName}</h3>
+                        <h3>User: {review.author}</h3>
+                        <h3>{review.ideaName}</h3>
                         {/* <img src={rev.imageUrl}></img> */}
                     </div> : null
             }
