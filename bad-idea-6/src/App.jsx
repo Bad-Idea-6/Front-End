@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import Home from './components/Home';
-import PostReview from "./components/apiAdapters/postReview";
+import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 

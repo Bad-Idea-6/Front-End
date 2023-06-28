@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import BASEURL from ".";
+import BASEURL from "./apiAdapters";
 
 export default function PostReview(){
     const [useIdeaName, setIdeaName] = useState("");
@@ -21,11 +21,11 @@ export default function PostReview(){
                 }, 
                 body: JSON.stringify({
                      post: {
-                        ideaName: `${useIdeaName}`,
-                        title: `${useTitle}`,
-                        author: `${useAuthor}`,
-                        review: `${useReview}`,
-                        setRating: `${useRating}`
+                        ideaName: useIdeaName,
+                        title: useTitle,
+                        author: useAuthor,
+                        review: useReview,
+                        setRating: useRating
                     }
                 })
             });
