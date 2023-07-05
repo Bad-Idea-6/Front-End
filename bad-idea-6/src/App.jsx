@@ -4,6 +4,7 @@ import Home from './components/Home';
 import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
+import Login from "./components/Login"
 
 function App() {
 
@@ -20,9 +21,9 @@ function App() {
       
       <div id="main-section">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/newPost" element={<PostReview />} />
-          <Route path="/AllReviews" element={<AllReviews />} />
+          <Route path="/loginPage" element={<Login/>} />
+          <Route path="/" element={<AllReviews />} />
         </Routes>
       </div>
     </div>
