@@ -5,7 +5,7 @@ import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
-import Register from "./components/register";
+import Register from "./components/Register";
 
 function App() {
 

@@ -2,6 +2,7 @@ import React, { useState} from "react";
 // import { registerUser } from ""//Update register User!!!!!!
 import { useNavigate } from "react-router-dom"
 import BASEURL from "./apiAdapters";
+import RegisterUser from "./RegisterUser";
 
 const Register = (props) => {
     const setIsLoggedIn = props.setIsLoggedIn
@@ -16,8 +17,8 @@ const Register = (props) => {
         e.preventDefault()
 
         try {
-            const result = await registerUser(username, password)
-            console.log(result)
+            const result = await RegisterUser(username, password, eMail, firstName, lastName)
+            console.log({result}, username, password, eMail, "!!!!!!!!!!!!")
 
             localStorage.setItem('token', result.token)
             setIsLoggedIn(true)
