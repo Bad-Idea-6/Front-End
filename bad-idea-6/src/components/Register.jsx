@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 // import { registerUser } from ""//Update register User!!!!!!
 import { useNavigate } from "react-router-dom"
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 import RegisterUser from "./RegisterUser";
 
 const Register = (props) => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import SingleReview from "./SingleReview";
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 // import SearchBar from "./SearchBar";
 
 

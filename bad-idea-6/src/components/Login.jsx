@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 import { useNavigate } from "react-router-dom";
 
 export default function userLogin() {
@@ -34,6 +34,7 @@ export default function userLogin() {
             }
             else {
                 localStorage.setItem("token", data.token)
+                localStorage.setItem("id", data.id)
                 console.log("Login fired success")
                 navigate("/")
             }

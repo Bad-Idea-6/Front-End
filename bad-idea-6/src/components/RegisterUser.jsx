@@ -1,4 +1,4 @@
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 const BASE_URL = BASEURL;
 
 const RegisterUser = async (username, password, email, firstName, lastName) => {

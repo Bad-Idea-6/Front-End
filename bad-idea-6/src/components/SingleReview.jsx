@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AllReviews from "./AllReviews";
 import { Link } from 'react-router-dom';
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 
 const APIURL = BASEURL;
 
