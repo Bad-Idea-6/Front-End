@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import BASEURL from "./apiAdapters";
+import {BASEURL} from "./apiAdapters";
 
 export default function PostReview(){
     const [useIdeaName, setIdeaName] = useState("");
