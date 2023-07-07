@@ -32,7 +32,7 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className="Profile-Container">
+    <div class="Profile-Container">
       <h1>
         welcome {user.firstName} {user.lastName}
       </h1>

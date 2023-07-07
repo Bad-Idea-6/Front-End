@@ -1,7 +1,9 @@
 :root {
+  display: flex;
+  justify-content: center;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 40;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #263849;
@@ -22,11 +24,11 @@ section {
 }
 
 header h1 {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 100%;
   z-index: 10;
   font-size: 50px;
   font-weight: 600;
@@ -55,9 +57,10 @@ a:hover {
 
 }
 
-
-
-
+html{
+  min-height:100%;/* make sure it is at least as tall as the viewport */
+  position:relative;
+}
 body {
   margin: 0;
   display: flex;
@@ -65,12 +68,21 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  height:100%;
   flex-wrap: wrap;
   flex-direction: row;
   overflow-x: hidden;
   justify-content: space-between;
 }
-
+#cloud-container{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  z-index:-1; /* Remove this line if it's not going to be a background! */
+}
 .page-container {
   display: flex;
   margin: 75px auto;
