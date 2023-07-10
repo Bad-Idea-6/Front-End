@@ -26,11 +26,11 @@ const SingleReview = ({ SingleReview }) => {
         fetchAllReviews();
     }, [])
 
-
-    console.log(id)
+// console.log (review.reviewId)
 
     return (
         <>
+        <h1>Single Post Page</h1>
             {
 
                 review && review.reviewId ?
@@ -41,8 +41,8 @@ const SingleReview = ({ SingleReview }) => {
                         <h3>User: {review.author}</h3>
                         <h3>{review.ideaName}</h3>
                         {/* <img src={rev.imageUrl}></img> */}
-                    </div> : null
-            }
+                    </div> : <h2> Loading... </h2>
+                                }
         </>
     )
 }

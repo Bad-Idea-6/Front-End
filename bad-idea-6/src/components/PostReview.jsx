@@ -8,25 +8,25 @@ export default function PostReview(){
     const [useAuthor, setAuthor] = useState("")
     const [useReview, setReview] = useState("")
     const [useRating, setRating] = useState("")
-
+    const [token, setToken] = useState("")
 
 
     const sendPostRequest = async (event) => {
         event.preventDefault()
+        setToken(localStorage.getItem("token"))
         try {
-            const response = await fetch(`${BASEURL}/posts`, {
+            const response = await fetch(`${BASEURL}/reviews/post`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${token}`
                 }, 
                 body: JSON.stringify({
-                     post: {
                         ideaName: useIdeaName,
                         title: useTitle,
                         author: useAuthor,
                         review: useReview,
-                        setRating: useRating
-                    }
+                        rating: useRating
                 })
             });
             const data = await response.json();
@@ -40,8 +40,8 @@ export default function PostReview(){
 return (
     <>
     <div>
-        <h1>create a new page</h1>
-        <form>
+        <h1>Creat New Post</h1>
+        <form onSubmit={sendPostRequest}>
             <input name="idea name" 
             type="text" 
             placeholder="Idea Name here..."
@@ -72,9 +72,9 @@ return (
             onChange={(e)=>{
                 setRating(e.target.value)
             }} />
-            <button>
-            <input type="submit" value={"submit"} onClick={()=> sendPostRequest()}/>
-            </button>
+            
+            <input type="submit" value={"submit"} />
+            
         </form>
     </div>
     </>

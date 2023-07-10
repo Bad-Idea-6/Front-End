@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 
+
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
         <div id="navbar">
           <Link to="/"> Home </Link>
           <Link to="/AllReviews"> All Reviews </Link>
+          <Link to="/newPost"> New Post </Link>
           <Link to="/loginPage"> Login</Link>
           <Link to="/register"> Register</Link>
         </div>
@@ -31,6 +33,8 @@ function App() {
             <Route path="/" element={<AllReviews />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/post/:reviewId" element={<SingleReview />} />
+            <Route path="/newPost" element={<PostReview />} />
           </Routes>
         </div>
       </div>

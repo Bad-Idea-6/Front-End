@@ -60,7 +60,7 @@ export default function AllReviews() {
                             <h4>{Review.ideaName}</h4>
                             <h4>{Review.review}</h4>
                             <h2>Rating: {Review.rating}</h2>
-                            <Link to={`/SingleReview/reviewId:${Review.reviewId}`}>
+                            <Link to={`/post/${Review.reviewId}`}>
                                 <button >Click Here For More Details</button>
                             </Link>
                             </div>
