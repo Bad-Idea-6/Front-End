@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {BASEURL} from "./apiAdapters";
+import { BASEURL } from "./apiAdapters";
 import { useNavigate } from "react-router-dom";
 
 export default function userLogin() {
@@ -27,7 +27,7 @@ export default function userLogin() {
             });
 
             const data = await response.json();
-
+            console.log(data)
 
             if (!data.success) {
                 console.log("Username or Password is incorrect")
@@ -35,6 +35,10 @@ export default function userLogin() {
             else {
                 localStorage.setItem("token", data.token)
                 localStorage.setItem("id", data.id)
+                if (data.is_admin) {
+                    console.log("is_admin")
+                    localStorage.setItem("is_admin", data.is_admin)
+                }
                 console.log("Login fired success")
                 navigate("/")
             }
@@ -69,6 +73,13 @@ export default function userLogin() {
                 </button>
 
             </form>
+            <button onClick={() => 
+            { setUsernameInput("admin")
+                setPasswordInput("password")
+            }
+            }
+            >Admin
+            </button>
         </div>
     )
 }
