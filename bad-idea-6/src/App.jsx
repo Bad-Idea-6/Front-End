@@ -5,8 +5,9 @@ import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
-import Register from "./components/Register";
+import Register from "./components/register";
 import Profile from "./components/Profile";
+import EditPostPage from "./components/EditPostPage";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/post/:reviewId" element={<SingleReview />} />
             <Route path="/newPost" element={<PostReview />} />
+            <Route path="/editPost/:reviewId" element={<EditPostPage />} />
           </Routes>
         </div>
       </div>
