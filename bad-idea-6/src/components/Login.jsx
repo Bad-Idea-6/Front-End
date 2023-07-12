@@ -3,7 +3,7 @@ import { useState } from "react";
 import { BASEURL } from "./apiAdapters";
 import { useNavigate } from "react-router-dom";
 
-export default function userLogin() {
+export default function userLogin(props) {
     const [usernameInput, setUsernameInput] = useState("")
     const [passwordInput, setPasswordInput] = useState("")
     const navigate = useNavigate()
@@ -11,7 +11,7 @@ export default function userLogin() {
     const loginRequest = async (event) => {
         event.preventDefault()
         console.log(usernameInput, passwordInput)
-
+        
         try {
             const response = await fetch(`${BASEURL}/user/login`, {
                 method: "POST",
@@ -35,6 +35,7 @@ export default function userLogin() {
             else {
                 localStorage.setItem("token", data.token)
                 localStorage.setItem("id", data.id)
+                props.setToken(data.token)
                 if (data.is_admin) {
                     console.log("is_admin")
                     localStorage.setItem("is_admin", data.is_admin)

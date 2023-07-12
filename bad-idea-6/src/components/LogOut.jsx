@@ -1,7 +1,8 @@
-export default function Logout() {
+export default function Logout(props) {
     const handleLogout = () => {
      localStorage.clear()
-     window.location.reload();
+     props.setToken("")
+
     };
   
     return (
