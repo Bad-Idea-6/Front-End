@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Register from "./components/register";
 import Profile from "./components/Profile";
 import EditPostPage from "./components/EditPostPage";
+import LogOut from "./components/LogOut";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Link to="/newPost"> New Post </Link>
           <Link to="/loginPage"> Login</Link>
           <Link to="/register"> Register</Link>
+          <LogOut/>
         </div>
 
         <div id="main-section">
