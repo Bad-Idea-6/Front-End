@@ -5,7 +5,7 @@ import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
-import Register from "./components/Register";
+import Register from "./components/register";
 import Profile from "./components/Profile";
 import EditPostPage from "./components/EditPostPage";
 import LogOut from "./components/LogOut";
@@ -35,10 +35,12 @@ function App() {
               <>
               <LogOut setToken={setToken} />
               <Link to="/newPost"> New Post </Link>
+              <Link to="/profile"> Edit Profile</Link>
               </>:
               <>
               <Link to="/loginPage"> Login</Link>
               <Link to="/register"> Register</Link>
+              
 
               </>
               }
