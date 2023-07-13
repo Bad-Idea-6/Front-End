@@ -49,31 +49,34 @@ const Admin = () => {
   return (
     <div>
       <h2>Admin Panel</h2>
+      <button onClick={fetchUsers}>Fetch Users</button>
       {isAdmin ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Admin</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    checked={user.isAdmin}
-                    onChange={() => updateUser(user.id, !user.isAdmin)}
-                  />
-                </td>
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Admin</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <input
+                      type="checkbox"
+                      checked={user.isAdmin}
+                      onChange={() => updateUser(user.id, !user.isAdmin)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
       ) : (
         <p>You do not have admin privileges.</p>
       )}
