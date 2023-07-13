@@ -1,12 +1,12 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
-import Register from "./components/Register";
+import Register from "./components/register";
 import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
 import EditPostPage from "./components/EditPostPage";
@@ -20,6 +20,9 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("is_admin") === "true"
   );
+  const location = useLocation();
+
+  const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
 
   return (
     <div id="container">
@@ -32,7 +35,7 @@ function App() {
 
         {token && token.length ? (
           <>
-            {isAdmin && <Link to="/admin">Admin Panel</Link>}
+            {showAdminPanel && <Link to="/admin">Admin Panel</Link>}
             <Logout setToken={setToken} />
             <Link to="/newPost">New Post</Link>
             <Link to="/profile">Edit Profile</Link>
