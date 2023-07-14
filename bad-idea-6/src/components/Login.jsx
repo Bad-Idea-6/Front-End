@@ -11,7 +11,7 @@ export default function userLogin(props) {
     const loginRequest = async (event) => {
         event.preventDefault()
         console.log(usernameInput, passwordInput)
-        
+
         try {
             const response = await fetch(`${BASEURL}/user/login`, {
                 method: "POST",
@@ -51,36 +51,46 @@ export default function userLogin(props) {
     }
     return (
         <div>
-            <h1> Login Here </h1>
-            <form>
-                <input name="Username"
-                    type="text"
-                    placeholder="Input Username Here"
-                    onChange={(e) => {
-                        setUsernameInput(e.target.value)
-                        console.log(usernameInput)
-                    }} />
+            <div class="reviews-container">
+                <div class="loginCard">
+                    <div class="login">
+                        <h1> Login Here </h1>
+                        <form>
+                            <div class="loginTextBox">
+                            <input name="Username"
+                                type="text"
+                                placeholder="Input Username Here"
+                                onChange={(e) => {
+                                    setUsernameInput(e.target.value)
+                                    console.log(usernameInput)
+                                }} />
 
 
-                <input name="Password"
-                    type="text"
-                    placeholder="Input Password Here"
-                    onChange={(e) => {
-                        setPasswordInput(e.target.value)
-                    }} />
-
-                <button>
-                    <input type="submit" value={"submit"} onClick={loginRequest} />
-                </button>
-
-            </form>
-            <button onClick={() => 
-            { setUsernameInput("admin")
-                setPasswordInput("password")
-            }
-            }
-            >Admin
-            </button>
+                            <input name="Password"
+                                type="text"
+                                placeholder="Input Password Here"
+                                onChange={(e) => {
+                                    setPasswordInput(e.target.value)
+                                }} />
+</div>
+                <div class="button-gap">
+                            <button onClick={loginRequest}>
+                                <input type="submit" value={"Login"} onClick={loginRequest} />
+                            </button>
+                            
+                        
+                        <button onClick={() => {
+                            setUsernameInput("admin")
+                            setPasswordInput("password")
+                        }
+                        }
+                        >Admin
+                        </button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

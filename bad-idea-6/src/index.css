@@ -73,6 +73,7 @@ body {
   flex-direction: row;
   overflow-x: hidden;
   justify-content: space-between;
+  align-items: center;
 }
 #cloud-container{
   position:absolute;
@@ -85,10 +86,11 @@ body {
 }
 .page-container {
   display: flex;
+  align-items: center;
   margin: 75px auto;
   width: 975px auto;
   padding: 30px;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-container {
@@ -150,12 +152,13 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
@@ -201,25 +204,123 @@ header {
   width: 275px;
   height: 375px;
   background-image: linear-gradient(to right, #35bcbf, #41506b);
+
+}
+.login {
+  border: 2px solid #90f6d7;
+  padding: 5px;
+  margin: 5px;
+  width: 275px;
+  height: 275px;
+  background-image: linear-gradient(to right, #35bcbf, #41506b);
+  gap: 10px;
+
 }
 
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register {
+  border: 2px solid #90f6d7;
+  padding: 5px;
+  margin: 5px;
+  width: 400px;
+  height: 400px;
+  background-image: linear-gradient(to right, #35bcbf, #41506b);
+  gap: 10px;
+
+}
 .reviews-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  gap: 20px;
+}
+
+.reviewsCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   padding: 5px;
   margin: 5px;
 
 }
-
-.navbar {
+.button-gap{
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginTextBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loginCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  gap:10px;
+
+}
+.detailsButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerTextBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px #35bcbf;
+  gap: 2%;
+}
+.searchbar {
+  display: flex;
+  align-items: center;
   justify-content: space-evenly;
   border: 5px #35bcbf;
 }
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+input {
+  height: 20px;
+  flex: 0 0 200px;
+  margin-left: 10px;
 }

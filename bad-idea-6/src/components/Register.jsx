@@ -30,8 +30,15 @@ const Register = (props) => {
     }
     return (
         <div>
+                   <div class="reviews-container">
+                <div class="loginCard">
+                    <div class="register">
+            <div class="center">
             <h2>Register</h2>
+            <h4>Registering is concidered a Good Idea!</h4>
+            </div>
             <form onSubmit={handleSubmit}>
+            <div class="registerTextBox">
             <label>
                     First Name:
                     <input
@@ -83,7 +90,12 @@ const Register = (props) => {
                     />
                 </label>
                 <button type='submit'>Submit</button>
+                </div>
             </form>
+        
+        </div>
+        </div>
+        </div>
         </div>
     );
 };
