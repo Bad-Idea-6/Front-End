@@ -1,37 +1,33 @@
-import React, { useState } from "react";
-import { BASEURL } from "./apiAdapters";
+import { useState, useEffect, React } from "react";
+import { BASEURL, currentToken } from "./apiAdapters";
+import { useNavigate } from "react-router-dom";
+import RegisterUser from "./RegisterUser";
 
-const EditProfile = () => {
-  const [email, setEmail] = useState("");
+const EditProfile = (props) => {
+
+  const setIsLoggedIn = props.setIsLoggedIn
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [eMail, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate= useNavigate()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleSubmit = async (e)=>{
+    e.preventDefault()
 
     try {
-      const response = await fetch(`${BASEURL}/user/editProfile`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+        const result = await RegisterUser(password, eMail, firstName, lastName)
+        console.log({result}, password, eMail)
 
-      if (response.ok) {
-        // Handle success
-        console.log("Profile updated successfully");
-      } else {
-        // Handle error
-        console.log("Error updating profile");
-      }
-    } catch (error) {
-      console.log(error);
+        localStorage.setItem('token', result.token)
+        setIsLoggedIn(true)
+
+        navigate('/')
+    }   catch (error) {
+        console.log(error)
     }
-  };
+}
 
   return (
     <div>
@@ -41,7 +37,7 @@ const EditProfile = () => {
           E-Mail:
           <input
             type="text"
-            value={email}
+            value={eMail}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
