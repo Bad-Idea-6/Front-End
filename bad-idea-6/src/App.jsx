@@ -8,6 +8,7 @@ import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import ViewProfile from "./components/ViewProfile";
 import EditProfile from "./components/EditProfile";
 import EditPostPage from "./components/EditPostPage";
 import Logout from "./components/LogOut";
@@ -38,7 +39,8 @@ function App() {
             {showAdminPanel && <Link to="/admin">Admin Panel</Link>}
             <Logout setToken={setToken} />
             <Link to="/newPost">New Post</Link>
-            <Link to="/profile">Edit Profile</Link>
+            <Link to="/viewProfile">View Profile</Link>
+            {/* <Link to="/editProfile">Edit Profile</Link> */}
           </>
         ) : (
           <>
@@ -55,6 +57,7 @@ function App() {
           <Route path="/" element={<AllReviews />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/viewProfile" element={<ViewProfile />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/post/:reviewId" element={<SingleReview />} />
           <Route path="/editPost/:reviewId" element={<EditPostPage />} />
