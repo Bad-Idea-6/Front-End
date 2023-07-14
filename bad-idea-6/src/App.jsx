@@ -6,11 +6,11 @@ import PostReview from "./components/PostReview";
 import AllReviews from "./components/AllReviews";
 import SingleReview from "./components/SingleReview";
 import Login from "./components/Login";
-import Register from "./components/register";
+import Register from "./components/Register";
 import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
 import EditPostPage from "./components/EditPostPage";
-import Logout from "./components/Logout";
+import Logout from "./components/LogOut";
 import Admin from "./components/Admin";
 import { currentToken } from "./components/apiAdapters";
 import { useState } from "react";
@@ -31,7 +31,7 @@ function App() {
       </header>
       <div id="navbar">
         <Link to="/">Home</Link>
-        <Link to="/AllReviews">All Reviews</Link>
+        {/* <Link to="/AllReviews">All Reviews</Link> */}
 
         {token && token.length ? (
           <>

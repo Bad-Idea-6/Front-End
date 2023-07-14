@@ -37,7 +37,10 @@ const SingleReview = ({ SingleReview }) => {
 
   return (
     <>
+     <div class="reviews-container">
+     <div class="reviewCard">
       <h1>Single Post Page</h1>
+                                    <div class="review">
       {review && review.reviewId ? (
         <div className="Single-Review">
           <h2>{review.title}</h2>
@@ -52,6 +55,9 @@ const SingleReview = ({ SingleReview }) => {
       ) : (
         <h2> Loading... </h2>
       )}
+      </div>
+      </div>
+      </div>
     </>
   );
 };
