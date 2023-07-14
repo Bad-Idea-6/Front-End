@@ -57,36 +57,37 @@ export default function userLogin(props) {
                         <h1> Login Here </h1>
                         <form>
                             <div class="loginTextBox">
-                            <input name="Username"
-                                type="text"
-                                placeholder="Input Username Here"
-                                onChange={(e) => {
-                                    setUsernameInput(e.target.value)
-                                    console.log(usernameInput)
-                                }} />
+                                <input name="Username"
+                                    type="text"
+                                    placeholder="Input Username Here"
+                                    onChange={(e) => {
+                                        setUsernameInput(e.target.value)
+                                        console.log(usernameInput)
+                                    }} />
 
 
-                            <input name="Password"
-                                type="text"
-                                placeholder="Input Password Here"
-                                onChange={(e) => {
-                                    setPasswordInput(e.target.value)
-                                }} />
-</div>
-                <div class="button-gap">
-                            <button onClick={loginRequest}>
-                                <input type="submit" value={"Login"} onClick={loginRequest} />
-                            </button>
-                            
-                        
-                        <button onClick={() => {
-                            setUsernameInput("admin")
-                            setPasswordInput("password")
-                        }
-                        }
-                        >Admin
-                        </button>
-                        </div>
+                                <input name="Password"
+                                    type="text"
+                                    placeholder="Input Password Here"
+                                    onChange={(e) => {
+                                        setPasswordInput(e.target.value)
+                                    }} />
+                            </div>
+                            <div class="button-gap">
+                                <button>
+                                    <input type="submit" value={"submit"} onClick={loginRequest} />
+                                </button>
+
+
+                                <button onClick={(e) => {
+                                    e.preventDefault()
+                                    setUsernameInput("admin")
+                                    setPasswordInput("password")
+                                }
+                                }
+                                >Admin
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
