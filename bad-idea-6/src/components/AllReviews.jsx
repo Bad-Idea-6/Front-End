@@ -34,46 +34,50 @@ export default function AllReviews() {
         fetchAllReviews();
     }, [])
     return (
-<div class="page-container">
-        <div class="searchBar">
-            <form>
-                <label htmlFor="search-query">Search: </label>
-                <input
-                    name="search-query"
-                    type="text"
-                    placeholder="Search Here"
-                    value={searchQuery}
-                    onChange={(handleChange) => {
-                        ///  console.log(bananas.target.value)
-                        setSearchQuery(handleChange.target.value)
-                    }}
-                ></input>
-            </form>
-            <div class="reviews-container">
-                {
-                    filteredReviews.length ? filteredReviews.map((Review, idx) => {
-                        return (
-                            <div key={idx}>
-                                <div class="reviewCard">
-                                    <div class="review">
-                                        <h3>{Review.title}</h3>
-                                        <h4>User: {Review.author}</h4>
-                                        <h4>{Review.ideaName}</h4>
-                                        <h4>{Review.review}</h4>
-                                        <h2>Rating: {Review.rating}</h2>
-                                        <div class="detailsButton">
-                                        <Link to={`/post/${Review.reviewId}`}>
-                                            <button >Click Here For More Details</button>
-                                        </Link>
+        <div class="page-container">
+            <div class="center">
+           
+                <form class="searchBar">
+                    <label htmlFor="search-query">Search: </label>
+                    <input
+                        name="search-query"
+                        type="text"
+                        placeholder="Search Here"
+                        value={searchQuery}
+                        onChange={(handleChange) => {
+                            ///  console.log(bananas.target.value)
+                            setSearchQuery(handleChange.target.value)
+                        }}
+                    ></input>
+                </form>
+             
+                <div class="reviews-container">
+                    {
+                        filteredReviews.length ? filteredReviews.map((Review, idx) => {
+                            return (
+                                <div key={idx}>
+                                    <div class="reviewCard">
+                                        <div class="review">
+                                            <div class="center">
+                                                <h3>{Review.title}</h3>
+                                                <h4>{Review.ideaName}</h4>
+                                                <h3>{Review.review}</h3>
+                                                <h4>By: {Review.author}</h4>
+                                                <h2>Rating: {Review.rating}</h2>
+                                            </div>
+                                            <div class="detailsButton">
+                                                <Link to={`/post/${Review.reviewId}`}>
+                                                    <button >Click Here For More Details</button>
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    }) : <p>Loading...</p>
-                }
+                            )
+                        }) : <p>Loading...</p>
+                    }
+                </div>
             </div>
-        </div>
         </div>
     )
 }
