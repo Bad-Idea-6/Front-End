@@ -37,26 +37,27 @@ const SingleReview = ({ SingleReview }) => {
 
   return (
     <>
-     <div class="reviews-container">
-     <div class="reviewCard">
-      <h1>Single Post Page</h1>
-                                    <div class="review">
-      {review && review.reviewId ? (
-        <div className="Single-Review">
-          <h2>{review.title}</h2>
-          <h3>User: {review.author}</h3>
-          <h3>{review.ideaName}</h3>
-          <h3>{review.rating}</h3>
-          {/* <img src={rev.imageUrl}></img> */}
-         <button> <Link to={`/editPost/${review.reviewId}`}>
-            edit post
-          </Link></button>
+      <div class="reviews-container">
+        <div class="reviewCard">
+          <h1>Single Post Page</h1>
+          <div class="review">
+            {review && review.reviewId ? (
+              <div className="Single-Review">
+                <h2>{review.title}</h2>
+                <h3>User: {review.author}</h3>
+                <h3>{review.ideaName}</h3>
+                <h3>{review.rating}</h3>
+                {/* <img src={rev.imageUrl}></img> */}
+                <button>
+                  {" "}
+                  <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
+                </button>
+              </div>
+            ) : (
+              <h2> Loading... </h2>
+            )}
+          </div>
         </div>
-      ) : (
-        <h2> Loading... </h2>
-      )}
-      </div>
-      </div>
       </div>
     </>
   );

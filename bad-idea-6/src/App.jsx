@@ -12,7 +12,8 @@ import ViewProfile from "./components/ViewProfile";
 import EditProfile from "./components/EditProfile";
 import EditPostPage from "./components/EditPostPage";
 import Logout from "./components/LogOut";
-import Admin from "./components/Admin";
+import Admin from "./components/admin/AdminUserPage";
+import AdminReportPage from "./components/admin/AdminReportPage";
 import { currentToken } from "./components/apiAdapters";
 import { useState } from "react";
 
@@ -62,6 +63,7 @@ function App() {
           <Route path="/post/:reviewId" element={<SingleReview />} />
           <Route path="/editPost/:reviewId" element={<EditPostPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-review" element={<AdminReportPage />} />
         </Routes>
       </div>
     </div>
