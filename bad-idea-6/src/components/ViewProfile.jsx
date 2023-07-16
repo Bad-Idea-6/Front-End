@@ -33,10 +33,12 @@ export default function viewProfile() {
 
   return (
     <div class="Profile-Container">
-      <h1>
+      <div class="center">
+      <h2>
         {user.username}'s Profile Page
-      </h1>
-
+      </h2>
+      </div>
+      <div class="profileCard">
       <h3>First Name: {user.firstName}</h3>
       <h3>Last Name: {user.lastName}</h3>
       <h3>Username: {user.username}</h3>
@@ -45,7 +47,7 @@ export default function viewProfile() {
       <Link to={`/editProfile`}>
            <button >Edit Profile</button>
         </Link>
-
+</div>
     </div>
   );
 }

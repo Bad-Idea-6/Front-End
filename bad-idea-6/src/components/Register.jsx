@@ -35,7 +35,7 @@ const Register = (props) => {
                     <div class="register">
             <div class="center">
             <h2>Register</h2>
-            <h4>Registering is concidered a Good Idea!</h4>
+            <h4>Registering is considered a Good Idea!</h4>
             </div>
             <form onSubmit={handleSubmit}>
             <div class="registerTextBox">

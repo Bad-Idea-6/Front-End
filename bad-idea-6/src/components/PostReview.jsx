@@ -39,9 +39,10 @@ export default function PostReview(){
 
 return (
     <>
-    <div>
+    <div class="center">
         <h1>Creat New Post</h1>
-        <form onSubmit={sendPostRequest}>
+       <div class="reviewTextBox">
+        <form class="newPost" onSubmit={sendPostRequest}>
             <input name="idea name" 
             type="text" 
             placeholder="Idea Name here..."
@@ -61,7 +62,7 @@ return (
                 setAuthor(e.target.value)
             }} />
             <input name="review" 
-            type="text" 
+            type="text" class="reviewDesc" 
             placeholder="Description here..."
             onChange={(e)=>{
                 setReview(e.target.value)
@@ -76,6 +77,7 @@ return (
             <input type="submit" value={"submit"} />
             
         </form>
+        </div>
     </div>
     </>
 )
