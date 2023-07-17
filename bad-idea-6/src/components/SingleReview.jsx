@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import AllReviews from "./AllReviews";
 import { Link } from "react-router-dom";
 import { BASEURL } from "./apiAdapters";
-import EditPostPage from "./EditPostPage";
 
 const APIURL = BASEURL;
 
-const SingleReview = ({ SingleReview }) => {
+const SingleReview = () => {
   const [review, setReview] = useState(null);
+  const [messages, setMessages] = useState([]);
   const { reviewId } = useParams();
 
   useEffect(() => {
-    async function fetchAllReviews() {
+    async function fetchReviewAndMessages() {
       try {
-        const response = await fetch(`${BASEURL}/reviews/singlePost`, {
+        const response = await fetch(`${APIURL}/reviews/singlePost`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -23,43 +22,69 @@ const SingleReview = ({ SingleReview }) => {
             id: reviewId,
           }),
         });
-        console.log("got to the json");
-        const result = await response.json();
-        setReview(result);
+        const reviewData = await response.json();
+        setReview(reviewData);
       } catch (error) {
         console.log(error);
       }
     }
-    fetchAllReviews();
-  }, []);
 
-  // console.log (review.reviewId)
+    async function fetchMessages() {
+      try {
+        const response = await fetch(`${APIURL}/messages/all-messages/${reviewId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const messagesData = await response.json();
+        setMessages(messagesData);
+
+        console.log(messages,"sdjhdusahdnsdjsdjnsjdnjsadn")
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchReviewAndMessages();
+    fetchMessages();
+  }, [reviewId]);
 
   return (
     <>
-      <div class="reviews-container">
-        <div class="reviewCard">
-          <div class="center">
-          <h1>Single Post Page</h1>
+      <div className="reviews-container">
+        <div className="reviewCard">
+          <div className="center">
+            <h1>Single Post Page</h1>
           </div>
-          <div class="SingleReview">
+          <div className="SingleReview">
             {review && review.reviewId ? (
-              <div classname="Single-Review">
-                <div class="center">
-                <h3>{review.title}</h3>
-                <h3>{review.ideaName}</h3>
-                <p>{review.review}</p>
-                <h3>User: {review.author}</h3>
-                <h3>Rating: {review.rating}</h3>
-                {/* <img src={rev.imageUrl}></img> */}
-                <button>
-                  {" "}
-                  <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
-                </button>
-              </div>
+              <div className="Single-Review">
+                <div className="center">
+                  <h3>{review.title}</h3>
+                  <h3>{review.ideaName}</h3>
+                  <p>{review.review}</p>
+                  <h3>User: {review.author}</h3>
+                  <h3>Rating: {review.rating}</h3>
+                  {/* <img src={rev.imageUrl}></img> */}
+                  <button>
+                    <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
+                  </button>
+                </div>
+                <h2>Messages</h2>
+                <div className="messages">
+                  {messages.map((message) => (
+                    <div key={message.messageId}>
+                      <p>{message.message}</p>
+                      <p>Author: {message.author}</p>
+                      <p>Rating: {message.rating}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
-              <h2> Loading... </h2>
+              <h2>Loading...</h2>
             )}
           </div>
         </div>
@@ -67,4 +92,5 @@ const SingleReview = ({ SingleReview }) => {
     </>
   );
 };
+
 export default SingleReview;
