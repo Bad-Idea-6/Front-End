@@ -3,9 +3,9 @@ import { BASEURL, currentToken } from "./apiAdapters";
 import { useNavigate } from "react-router-dom";
 import RegisterUser from "./RegisterUser";
 
-const EditProfile = (props) => {
+const EditProfile = () => {
 
-  const setIsLoggedIn = props.setIsLoggedIn
+  // const setIsLoggedIn = props.setIsLoggedIn
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [eMail, setEmail] = useState("");
@@ -21,11 +21,10 @@ const EditProfile = (props) => {
         console.log({result}, password, eMail)
 
         localStorage.setItem('token', result.token)
-        setIsLoggedIn(true)
 
         navigate('/')
     }   catch (error) {
-        console.log(error)
+        console.log("Didnt change info", error)
     }
 }
 
@@ -49,6 +48,9 @@ const EditProfile = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
+
+        <br></br>
+
         <button type="submit">Submit</button>
       </form>
     </div>
