@@ -216,7 +216,6 @@ header {
 
 }
 
-
 .profileCard {
   border: .25rem solid #90f6d7;
   padding: 1px;
@@ -224,7 +223,6 @@ header {
   width: 400px;
   height: 375px;
   background-image: linear-gradient(to right, #35bcbf, #41506b);
-
 }
 
 .login {
@@ -235,7 +233,6 @@ header {
   height: 275px;
   background-image: linear-gradient(to right, #35bcbf, #41506b);
   gap: 10px;
-
 }
 
 .center{
@@ -422,4 +419,54 @@ h2 {
   padding: 0px;
   margin: 0px;
 }
+
+.messages {
+  border: .25rem solid #90f6d7;
+  padding: 1px;
+  margin: 1px;
+  width: 400px;
+  height: 375px;
+  background-image: linear-gradient(to right, #1f7172, #000000);
+}
+
+#messages-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid white; */
+  height: 5rem;
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 2rem;
+}
+
+#admin-text {
+  border: 2px solid white;
+  width: auto;
+  height: auto;
+  margin: 1.5rem;
+  padding: 1%;
+  font-size: 1.2em;
+
+}
+
+#author-text {
+  border: 2px solid white;
+  width: auto;
+  height: auto;
+  margin: 1.5rem;
+  padding: 1%;
+  font-size: 1.2em;
+}
+
+#rating-text {
+  border: 2px solid white;
+  width: auto;
+  height: auto;
+  margin: 1.5rem;
+  padding: 1%;
+  font-size: 1.2em;
+
+}
+
 
