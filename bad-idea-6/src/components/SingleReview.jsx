@@ -72,13 +72,13 @@ const SingleReview = () => {
                     <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
                   </button>
                 </div>
-                <h2>Messages</h2>
+                <h2 id="messages-text">Messages</h2>
                 <div className="messages">
                   {messages.map((message) => (
                     <div key={message.messageId}>
-                      <p>{message.message}</p>
-                      <p>Author: {message.author}</p>
-                      <p>Rating: {message.rating}</p>
+                      <p id="admin-text">{message.message}</p>
+                      <p id="author-text">Author: {message.author}</p>
+                      <p id="rating-text">Rating: {message.rating}</p>
                     </div>
                   ))}
                 </div>
