@@ -31,17 +31,17 @@ const SingleReview = () => {
 
     async function fetchMessages() {
       try {
-        const response = await fetch(`${APIURL}/messages/allMessages`, {
+        const response = await fetch(`${APIURL}/messages/all-messages/${reviewId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            reviewId: reviewId,
-          }),
         });
         const messagesData = await response.json();
         setMessages(messagesData);
+
+        console.log(messages,"sdjhdusahdnsdjsdjnsjdnjsadn")
+
       } catch (error) {
         console.log(error);
       }
@@ -72,6 +72,7 @@ const SingleReview = () => {
                     <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
                   </button>
                 </div>
+                <h2>Messages</h2>
                 <div className="messages">
                   {messages.map((message) => (
                     <div key={message.messageId}>
