@@ -55,9 +55,6 @@ const SingleReview = () => {
     <>
       <div className="reviews-container">
         <div className="reviewCard">
-          <div className="center">
-            <h1>Single Post Page</h1>
-          </div>
           <div className="SingleReview">
             {review && review.reviewId ? (
               <div className="Single-Review">
