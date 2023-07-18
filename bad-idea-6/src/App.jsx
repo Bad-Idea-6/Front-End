@@ -22,6 +22,8 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("is_admin") === "true"
   );
+const [isLoggedIn, setIsLoggedIn] = useState("false")
+
   const location = useLocation();
 
   const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
@@ -58,7 +60,7 @@ function App() {
           <Route path="/newPost" element={<PostReview />} />
           <Route path="/loginPage" element={<Login setToken={setToken} />} />
           <Route path="/" element={<AllReviews />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register setToken={setToken} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/viewProfile" element={<ViewProfile />} />
           <Route path="/editProfile" element={<EditProfile />} />
