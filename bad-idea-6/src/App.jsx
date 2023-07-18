@@ -24,7 +24,7 @@ function App() {
   );
   const location = useLocation();
 
-  const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
+  // const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
 
   return (
     <div id="container">
@@ -33,20 +33,20 @@ function App() {
       </header>
       <div id="navbar">
         <Link to="/">Home</Link>
-        {/* <Link to="/AllReviews">All Reviews</Link> */}
+
+        {/* {token && token.length && isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ") } */}
 
         {token && token.length ? (
           <>
-            {showAdminPanel && <Link to="/admin">Admin Panel</Link>}
-            
+            {isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ") }
+
             <Link to="/newPost">New Post</Link>
             <Link to="/viewProfile">View Profile</Link>
             <Logout setToken={setToken} />
-            {/* <Link to="/editProfile">Edit Profile</Link> */}
           </>
         ) : (
           <>
-            
+
             <Link to="/register">Register</Link>
             <Link to="/loginPage">Login</Link>
           </>

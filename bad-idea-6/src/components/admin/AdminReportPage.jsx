@@ -96,7 +96,7 @@ export default function AdminReportPage() {
             );
           })
         ) : (
-          <h3>Loding...</h3>
+          <h3>Loading...</h3>
         )}
       </div>
     </>
