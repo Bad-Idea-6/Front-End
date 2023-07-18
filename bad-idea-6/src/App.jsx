@@ -38,15 +38,17 @@ function App() {
         {token && token.length ? (
           <>
             {showAdminPanel && <Link to="/admin">Admin Panel</Link>}
-            <Logout setToken={setToken} />
+            
             <Link to="/newPost">New Post</Link>
             <Link to="/viewProfile">View Profile</Link>
+            <Logout setToken={setToken} />
             {/* <Link to="/editProfile">Edit Profile</Link> */}
           </>
         ) : (
           <>
-            <Link to="/loginPage">Login</Link>
+            
             <Link to="/register">Register</Link>
+            <Link to="/loginPage">Login</Link>
           </>
         )}
       </div>

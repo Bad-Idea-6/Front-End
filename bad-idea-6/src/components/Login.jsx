@@ -74,7 +74,7 @@ export default function userLogin(props) {
                                     }} />
                             </div>
                             <div class="button-gap">
-                                <button>
+                                <button onClick={loginRequest}>
                                     <input type="submit" value={"submit"} onClick={loginRequest} />
                                 </button>
 

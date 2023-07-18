@@ -15,6 +15,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   align-items: center;
+  background: url("./assets/wooden-wall-g4b8396df8_1920.jpg") top left;
+  max-width: 1920px;
+  max-height: 1080px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 section {
@@ -32,20 +37,20 @@ header h1 {
   z-index: 10;
   font-size: 50px;
   font-weight: 600;
-  background-image: linear-gradient(45deg, #90f6d7, #41506b);
+  background-image: linear-gradient(45deg, #90f6d7, #4e5970);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
- text-align: center;
+  text-align: center;
   margin: 0;
- 
+
 }
 
 a {
   font-size: 30px;
   font-weight: 500;
   box-shadow: inset 0 0 0 0 #54b3d6;
-  color: #54b3d6;
+  color: #67f0f3;
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
@@ -57,10 +62,11 @@ a:hover {
 
 }
 
-html{
-  min-height:100%;/* make sure it is at least as tall as the viewport */
-  position:relative;
+html {
+  min-height: 100%;
+  position: relative;
 }
+
 body {
   margin: 0;
   display: flex;
@@ -68,22 +74,24 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  height:100%;
+  height: 100%;
   flex-wrap: wrap;
   flex-direction: row;
   overflow-x: hidden;
   justify-content: space-between;
   align-items: center;
 }
-#cloud-container{
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  overflow:hidden;
-  z-index:-1; /* Remove this line if it's not going to be a background! */
+
+#cloud-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: -1;
 }
+
 .page-container {
   display: flex;
   align-items: center;
@@ -138,6 +146,7 @@ body {
   margin: 1px;
   border: solid 3px #8DAA91;
 }
+
 img {
   max-width: 190px;
   max-height: auto;
@@ -159,30 +168,8 @@ button {
   transition: border-color 0.25s;
   align-items: center;
   justify-content: center;
-}
+  color: #67f0f3; 
 
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #41506b;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 header {
@@ -206,6 +193,7 @@ header {
   background-image: linear-gradient(to right, #35bcbf, #41506b);
 
 }
+
 .SingleReview {
   border: .25rem solid #90f6d7;
   padding: 1px;
@@ -235,7 +223,7 @@ header {
   gap: 10px;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -287,28 +275,38 @@ header {
   margin: 2px;
 
 }
-.button-gap{
+
+.button-gap {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.loginTextBox{
+
+.buttonLogout {
+  border: none;
+  background: url("./assets/background_classic.png") no-repeat top left;
+  padding: 2px 8px;
+}
+
+
+.loginTextBox {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.reviewTextBox{
+.reviewTextBox {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 30px;
   flex: 0 30px 30px;
- 
+
 }
+
 .loginCard {
   display: flex;
   justify-content: center;
@@ -316,16 +314,17 @@ header {
   flex-wrap: wrap;
   padding: 5px;
   margin: 5px;
-  gap:10px;
+  gap: 10px;
 
 }
-.detailsButton{
+
+.detailsButton {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.registerTextBox{
+.registerTextBox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -339,13 +338,15 @@ header {
   border: 5px #35bcbf;
   gap: 2%;
 }
+
 .searchBar {
   display: flex;
-  position: relative;
+  position: left;
   align-items: left;
-  justify-content:left;
+  justify-content: left;
   border: 5px #35bcbf;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -385,20 +386,34 @@ input {
 
 p {
   line-height: 1.5em;
-  height: 9em;       /* height is 2x line-height, so two lines will display */
+  height: 9em;
+  /* height is 2x line-height, so two lines will display */
   font-size: 1em;
   margin: 1em;
-  
+  font-weight: bold;
 }
 
 h3 {
+  -webkit-line-clamp: 2;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
   max-width: 70ch;
-  /* white-space: nowrap; */
   line-height: 1.5em;
-  height: 3em;       /* height is 2x line-height, so two lines will display */
+  height: 3em;
+  /* height is 2x line-height, so two lines will display */
   padding: 0px;
   margin: 0px;
+
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 h4 {
@@ -406,18 +421,23 @@ h4 {
   max-width: 70ch;
   /* white-space: nowrap; */
   line-height: 1.5em;
-  height: 3em;       /* height is 2x line-height, so two lines will display */
+  height: 3em;
+  /* height is 2x line-height, so two lines will display */
   padding: 0px;
   margin: 0px;
+  text-overflow: ellipsis;
 }
+
 h2 {
   overflow: hidden;
   max-width: 70ch;
   /* white-space: nowrap; */
   line-height: 1.5em;
-  height: 3em;       /* height is 2x line-height, so two lines will display */
+  height: 3em;
+  /* height is 2x line-height, so two lines will display */
   padding: 0px;
   margin: 0px;
+  text-overflow: ellipsis;
 }
 
 .messages {
@@ -470,3 +490,12 @@ h2 {
 }
 
 
+.admin_user_container {
+  border: .25rem solid #90f6d7;
+  padding: 3px;
+  margin: 3px;
+  width: 600px;
+  height: 40px;
+  background-image: linear-gradient(to right, #1f7172, #000000);
+  gap: 10px;
+}
