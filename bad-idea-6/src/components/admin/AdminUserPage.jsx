@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link, Routes, Route } from "react-router-dom";
 import { BASEURL } from "../apiAdapters";
+import AdminReportPage from "./AdminReportPage";
 import "./admin.css";
 
 const Admin = () => {
@@ -76,6 +78,10 @@ const Admin = () => {
       {adminAuth ? (
         <div>
           <h1>Admin control panel</h1>
+          <Link to={"/admin-review"}>
+            <button>Report Overview</button>
+          </Link>
+
           {users && users.length ? (
             users.map((user, idx) => {
               return (
@@ -115,6 +121,13 @@ const Admin = () => {
       ) : (
         <h1>You are not an admin</h1>
       )}
+
+      <div id="extra-sections">
+        <Routes>
+          <Route path="/admin-review" element={<AdminReportPage />} />
+        </Routes>
+      </div>
+
     </>
   );
 };

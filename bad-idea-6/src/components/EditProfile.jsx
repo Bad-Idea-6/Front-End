@@ -6,9 +6,10 @@ import RegisterUser from "./RegisterUser";
 const EditProfile = () => {
 
   // const setIsLoggedIn = props.setIsLoggedIn
+  const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [eMail, setEmail] = useState("");
+  const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
   const navigate= useNavigate()
 
@@ -17,14 +18,14 @@ const EditProfile = () => {
     e.preventDefault()
 
     try {
-        const result = await RegisterUser(password, eMail, firstName, lastName)
+        const result = await RegisterUser(username, password, eMail, firstName, lastName)
         console.log({result}, password, eMail)
 
         localStorage.setItem('token', result.token)
 
         navigate('/')
     }   catch (error) {
-        console.log("Didnt change info", error)
+        console.log("! Didnt change info !", error)
     }
 }
 
@@ -37,7 +38,7 @@ const EditProfile = () => {
           <input
             type="text"
             value={eMail}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEMail(e.target.value)}
           />
         </label>
         <label>
