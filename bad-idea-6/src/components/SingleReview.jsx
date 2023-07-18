@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BASEURL } from "./apiAdapters";
+import LeaveComment from "./LeaveComment";
+import { currentToken } from "./apiAdapters";
+
 
 const APIURL = BASEURL;
 
@@ -9,6 +12,10 @@ const SingleReview = () => {
   const [review, setReview] = useState(null);
   const [messages, setMessages] = useState([]);
   const { reviewId } = useParams();
+
+  const storedUsername = localStorage.getItem("username")
+  const storedIsAdmin = localStorage.getItem("is_admin")
+
 
   useEffect(() => {
     async function fetchReviewAndMessages() {
@@ -40,8 +47,6 @@ const SingleReview = () => {
         const messagesData = await response.json();
         setMessages(messagesData);
 
-        console.log(messages,"sdjhdusahdnsdjsdjnsjdnjsadn")
-
       } catch (error) {
         console.log(error);
       }
@@ -65,9 +70,13 @@ const SingleReview = () => {
                   <h3>User: {review.author}</h3>
                   <h3>Rating: {review.rating}</h3>
                   {/* <img src={rev.imageUrl}></img> */}
+                  {review.author === storedUsername || storedIsAdmin === "true"?
                   <button>
                     <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
                   </button>
+                  : currentToken? <div className="comment-container"><LeaveComment id={review.reviewId}/></div> 
+                  : <h2>Log In to leave a comment</h2>
+                  }
                 </div>
                 <h2 id="messages-text">Messages</h2>
                 <div className="messages">

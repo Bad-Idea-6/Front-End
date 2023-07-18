@@ -8,6 +8,7 @@ export default function userLogin(props) {
     const [passwordInput, setPasswordInput] = useState("")
     const navigate = useNavigate()
 
+
     const loginRequest = async (event) => {
         event.preventDefault()
         console.log(usernameInput, passwordInput)
@@ -33,8 +34,10 @@ export default function userLogin(props) {
                 console.log("Username or Password is incorrect")
             }
             else {
+                console.log(data)
                 localStorage.setItem("token", data.token)
                 localStorage.setItem("id", data.id)
+                localStorage.setItem("username", data.username)
                 props.setToken(data.token)
                 if (data.is_admin) {
                     console.log("is_admin")
