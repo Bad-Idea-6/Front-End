@@ -49,7 +49,7 @@ export default function viewProfile() {
       {/* <div id="post-amount-text">  {user. ? (user.) : `No Posts` } </div> */}
 
       <Link to={`/editProfile`}>
-           <button >Edit Profile</button>
+           <button>Edit Profile</button>
         </Link>
 </div>
     </div>

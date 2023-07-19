@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BASEURL } from "./apiAdapters";
+import LeaveComment from "./LeaveComment";
 import { currentToken } from "./apiAdapters";
+
+
 const APIURL = BASEURL;
 
 const SingleReview = () => {
@@ -40,8 +43,6 @@ const SingleReview = () => {
         });
         const messagesData = await response.json();
         setMessages(messagesData);
-
-        console.log(messages, "sdjhdusahdnsdjsdjnsjdnjsadn")
 
       } catch (error) {
         console.log(error);

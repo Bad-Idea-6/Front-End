@@ -22,9 +22,11 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("is_admin") === "true"
   );
+const [isLoggedIn, setIsLoggedIn] = useState("false")
+
   const location = useLocation();
 
-  const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
+  // const showAdminPanel = location.pathname === "/editProfile" && isAdmin;
 
   return (
     <div id="container">
@@ -33,20 +35,20 @@ function App() {
       </header>
       <div id="navbar">
         <Link to="/">Home</Link>
-        {/* <Link to="/AllReviews">All Reviews</Link> */}
+
+        {/* {token && token.length && isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ") } */}
 
         {token && token.length ? (
           <>
-            {showAdminPanel && <Link to="/admin">Admin Panel</Link>}
-            
+            {isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ") }
+
             <Link to="/newPost">New Post</Link>
             <Link to="/viewProfile">View Profile</Link>
             <Logout setToken={setToken} />
-            {/* <Link to="/editProfile">Edit Profile</Link> */}
           </>
         ) : (
           <>
-            
+
             <Link to="/register">Register</Link>
             <Link to="/loginPage">Login</Link>
           </>
@@ -58,7 +60,7 @@ function App() {
           <Route path="/newPost" element={<PostReview />} />
           <Route path="/loginPage" element={<Login setToken={setToken} />} />
           <Route path="/" element={<AllReviews />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register setToken={setToken} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/viewProfile" element={<ViewProfile />} />
           <Route path="/editProfile" element={<EditProfile />} />

@@ -5,7 +5,7 @@ import {BASEURL} from "./apiAdapters";
 import RegisterUser from "./RegisterUser";
 
 const Register = (props) => {
-    const setIsLoggedIn = props.setIsLoggedIn
+    const setToken = props.setToken
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [eMail, setEMail] = useState("");
@@ -18,10 +18,15 @@ const Register = (props) => {
 
         try {
             const result = await RegisterUser(username, password, eMail, firstName, lastName)
-            console.log({result}, username, password, eMail, "!!!!!!!!!!!!")
+            console.log(result, username, password, eMail, "!!!!!!!!!!!!")
+            console.log(result.result)
 
-            localStorage.setItem('token', result.token)
-            setIsLoggedIn(true)
+
+            localStorage.setItem('token', result.result.token)
+            localStorage.setItem("id", result.result.userInfo.userId)
+            localStorage.setItem("username", result.result.userInfo.username)
+            localStorage.setItem("is_admin", false)
+            setToken(result.result.token)
 
             navigate('/')
         }   catch (error) {
