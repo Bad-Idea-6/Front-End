@@ -92,7 +92,7 @@ const Admin = () => {
                   <h3>{user.email}</h3>
                   {user.is_admin ? (
                     <div>
-                    <h3>Is Admin</h3>
+                      <h3>Is Admin</h3>
                     </div>
                   ) : (
                     <div>
@@ -105,9 +105,9 @@ const Admin = () => {
                         Delete
                       </button>
                       <button onClick={(e) => {
-                          e.preventDefault();
-                          createAdmin(user.userId);
-                        }}>
+                        e.preventDefault();
+                        createAdmin(user.userId);
+                      }}>
                         Make Admin</button>
                     </div>
                   )}

@@ -7,11 +7,12 @@
 #review-report-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   border: 1px solid bisque;
-  width: 115%;
+  width: 90%;
   text-align: center;
   margin: auto;
+  gap: 10px;
 
 }
 #textWrap{

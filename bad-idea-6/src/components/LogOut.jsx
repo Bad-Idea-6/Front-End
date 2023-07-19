@@ -11,10 +11,10 @@ export default function Logout(props) {
 
   return (
     <Link to="/">
-    <button onClick={handleLogout}>
-      <input className="center" type="submit" value={"Logout"} onClick={handleLogout} />
-    </button>
-  </Link>
+      <button onClick={handleLogout}>
+        <input className="center" type="submit" value={"Logout"} onClick={handleLogout} />
+      </button>
+    </Link>
   );
 }
 

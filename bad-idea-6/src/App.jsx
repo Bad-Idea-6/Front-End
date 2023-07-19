@@ -22,7 +22,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(
     localStorage.getItem("is_admin") === "true"
   );
-const [isLoggedIn, setIsLoggedIn] = useState("false")
+  const [isLoggedIn, setIsLoggedIn] = useState("false")
 
   const location = useLocation();
 
@@ -40,7 +40,7 @@ const [isLoggedIn, setIsLoggedIn] = useState("false")
 
         {token && token.length ? (
           <>
-            {isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ") }
+            {isAdmin ? (<Link to="/admin">Admin Panel</Link>) : (" ")}
 
             <Link to="/newPost">New Post</Link>
             <Link to="/viewProfile">View Profile</Link>

@@ -1,7 +1,7 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 // import { registerUser } from ""//Update register User!!!!!!
 import { useNavigate } from "react-router-dom"
-import {BASEURL} from "./apiAdapters";
+import { BASEURL } from "./apiAdapters";
 import RegisterUser from "./RegisterUser";
 
 const Register = (props) => {
@@ -11,9 +11,9 @@ const Register = (props) => {
     const [eMail, setEMail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const navigate= useNavigate()
+    const navigate = useNavigate()
 
-    const handleSubmit = async (e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         try {
@@ -29,78 +29,78 @@ const Register = (props) => {
             setToken(result.result.token)
 
             navigate('/')
-        }   catch (error) {
+        } catch (error) {
             console.log(error)
         }
     }
     return (
         <div>
-                   <div className="reviews-container">
+            <div className="reviews-container">
                 <div className="loginCard">
                     <div className="register">
-            <div className="center">
-            <h2>Register</h2>
-            <h4>Registering is considered a Good Idea!</h4>
-            </div>
-            <form onSubmit={handleSubmit}>
-            <div className="registerTextBox">
-            <label>
-                    First Name:
-                    <input
-                        type="text"
-                        value={firstName}
-                        onChange={(e) => {
-                            setFirstName(e.target.value);
-                    }}
-                />
-                </label>
-                <label>
-                    Last Name:
-                    <input
-                        type="text"
-                        value={lastName}
-                        onChange={(e) => {
-                            setLastName(e.target.value);
-                    }}
-                />
-                </label>
-                <label>
-                    E-Mail:
-                    <input
-                        type="text"
-                        value={eMail}
-                        onChange={(e) => {
-                            setEMail(e.target.value);
-                    }}
-                />
-                </label>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => {
-                            setUsername(e.target.value);
-                    }}
-                />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => {
-                            setPassword(e.target.value);
-                        }}
-                    />
-                </label>
-                <button type='submit'>Submit</button>
+                        <div className="center">
+                            <h2>Register</h2>
+                            <h4>Registering is considered a Good Idea!</h4>
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <div className="registerTextBox">
+                                <label>
+                                    First Name:
+                                    <input
+                                        type="text"
+                                        value={firstName}
+                                        onChange={(e) => {
+                                            setFirstName(e.target.value);
+                                        }}
+                                    />
+                                </label>
+                                <label>
+                                    Last Name:
+                                    <input
+                                        type="text"
+                                        value={lastName}
+                                        onChange={(e) => {
+                                            setLastName(e.target.value);
+                                        }}
+                                    />
+                                </label>
+                                <label>
+                                    E-Mail:
+                                    <input
+                                        type="text"
+                                        value={eMail}
+                                        onChange={(e) => {
+                                            setEMail(e.target.value);
+                                        }}
+                                    />
+                                </label>
+                                <label>
+                                    Username:
+                                    <input
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) => {
+                                            setUsername(e.target.value);
+                                        }}
+                                    />
+                                </label>
+                                <label>
+                                    Password:
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                        }}
+                                    />
+                                </label>
+                                <button type='submit'>Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-            </form>
-        
-        </div>
-        </div>
-        </div>
+            </div>
         </div>
     );
 };

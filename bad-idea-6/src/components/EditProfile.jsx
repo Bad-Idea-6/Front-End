@@ -11,23 +11,23 @@ const EditProfile = () => {
   const [lastName, setLastName] = useState("");
   const [eMail, setEMail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate()
 
 
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-        const result = await RegisterUser(username, password, eMail, firstName, lastName)
-        console.log({result}, password, eMail)
+      const result = await RegisterUser(username, password, eMail, firstName, lastName)
+      console.log({ result }, password, eMail)
 
-        localStorage.setItem('token', result.token)
+      localStorage.setItem('token', result.token)
 
-        navigate('/')
-    }   catch (error) {
-        console.log("! Didnt change info !", error)
+      navigate('/')
+    } catch (error) {
+      console.log("! Didnt change info !", error)
     }
-}
+  }
 
   return (
     <div>

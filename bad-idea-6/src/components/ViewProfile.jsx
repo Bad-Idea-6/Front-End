@@ -35,23 +35,23 @@ export default function viewProfile() {
   return (
     <div className="Profile-Container">
       <div className="center">
-      <h2>
-        {/* Make if statement incase no username */}
-        {user.username}'s Profile Page
-      </h2>
+        <h2>
+          {/* Make if statement incase no username */}
+          {user.username}'s Profile Page
+        </h2>
       </div>
       <div className="profileCard">
-      <div id="first-name-text">First Name: {user.firstName ? (user.firstName) : `! Please Add First Name !` } </div>
-      <div id="last-name-text">Last Name:  {user.lastName ? (user.lastName) : `! Please Add Last Name !` } </div>
-      <div id="username-text">Username: {user.username ? (user.username) : `! Please Add Username !` } </div>
-      <div id="email-text">Email: {user.email ? (user.email) : `! Please Add Email !` } </div>
+        <div id="first-name-text">First Name: {user.firstName ? (user.firstName) : `! Please Add First Name !`} </div>
+        <div id="last-name-text">Last Name:  {user.lastName ? (user.lastName) : `! Please Add Last Name !`} </div>
+        <div id="username-text">Username: {user.username ? (user.username) : `! Please Add Username !`} </div>
+        <div id="email-text">Email: {user.email ? (user.email) : `! Please Add Email !`} </div>
 
-      {/* <div id="post-amount-text">  {user. ? (user.) : `No Posts` } </div> */}
+        {/* <div id="post-amount-text">  {user. ? (user.) : `No Posts` } </div> */}
 
-      <Link to={`/editProfile`}>
-           <button>Edit Profile</button>
+        <Link to={`/editProfile`}>
+          <button>Edit Profile</button>
         </Link>
-</div>
+      </div>
     </div>
   );
 }

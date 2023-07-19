@@ -37,8 +37,8 @@ export default function AllReviews() {
     return (
         <div className="page-container">
             <div className="center">
-           
-                <form className="searchBar">
+                <form className="newSearch">
+                    <div className="searchBar">
                     <label htmlFor="search-query">Search: </label>
                     <input
                         name="search-query"
@@ -50,8 +50,9 @@ export default function AllReviews() {
                             setSearchQuery(handleChange.target.value)
                         }}
                     ></input>
+                    </div>
                 </form>
-             
+
                 <div className="reviews-container">
                     {
                         filteredReviews.length ? filteredReviews.map((Review, idx) => {
