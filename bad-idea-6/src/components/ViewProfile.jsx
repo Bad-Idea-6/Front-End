@@ -33,14 +33,14 @@ export default function viewProfile() {
   }, []);
 
   return (
-    <div class="Profile-Container">
-      <div class="center">
+    <div className="Profile-Container">
+      <div className="center">
       <h2>
         {/* Make if statement incase no username */}
         {user.username}'s Profile Page
       </h2>
       </div>
-      <div class="profileCard">
+      <div className="profileCard">
       <div id="first-name-text">First Name: {user.firstName ? (user.firstName) : `! Please Add First Name !` } </div>
       <div id="last-name-text">Last Name:  {user.lastName ? (user.lastName) : `! Please Add Last Name !` } </div>
       <div id="username-text">Username: {user.username ? (user.username) : `! Please Add Username !` } </div>

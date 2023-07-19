@@ -35,15 +35,15 @@ const Register = (props) => {
     }
     return (
         <div>
-                   <div class="reviews-container">
-                <div class="loginCard">
-                    <div class="register">
-            <div class="center">
+                   <div className="reviews-container">
+                <div className="loginCard">
+                    <div className="register">
+            <div className="center">
             <h2>Register</h2>
             <h4>Registering is considered a Good Idea!</h4>
             </div>
             <form onSubmit={handleSubmit}>
-            <div class="registerTextBox">
+            <div className="registerTextBox">
             <label>
                     First Name:
                     <input

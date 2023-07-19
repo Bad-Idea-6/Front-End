@@ -244,11 +244,13 @@ header {
 }
 
 .newPost {
+  display: flex;
+  flex-direction: column;
   border: 2px solid #90f6d7;
   padding: 5px;
   margin: 5px;
   width: 400px;
-  height: 400px;
+  /* height: 400px; */
   background-image: linear-gradient(to right, #35bcbf, #41506b);
   gap: 10px;
 
@@ -302,7 +304,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 30px;
+  /* height: 30px; */
   flex: 0 30px 30px;
 
 }
@@ -377,9 +379,10 @@ input {
 
 
 
-.reviewDesc {
-  height: 200px;
-  width: 200px;
+#reviewDesc {
+  /* height: 500px; */
+padding-top: 150px;
+padding-bottom: 150px;
   flex: 0px 0px 30px;
   margin-left: 10px;
 }
