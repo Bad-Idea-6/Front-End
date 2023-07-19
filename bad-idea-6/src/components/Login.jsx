@@ -51,12 +51,12 @@ export default function userLogin(props) {
     }
     return (
         <div>
-            <div class="reviews-container">
-                <div class="loginCard">
-                    <div class="login">
+            <div className="reviews-container">
+                <div className="loginCard">
+                    <div className="login">
                         <h1> Login Here </h1>
                         <form>
-                            <div class="loginTextBox">
+                            <div className="loginTextBox">
                                 <input name="Username"
                                     type="text"
                                     placeholder="Input Username Here"

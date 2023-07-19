@@ -11,9 +11,10 @@ export default function AllReviews() {
     let [searchQuery, setSearchQuery] = useState("");
     let filteredReviews = review.filter((singleReview) => {
         let lowercasedName = singleReview.ideaName.toLowerCase();
+        let lowercasedName2 = singleReview.review.toLowerCase();
         let lowercasedQuery = searchQuery.toLowerCase();
 
-        if (lowercasedName.includes(lowercasedQuery)) {
+        if (lowercasedName.includes(lowercasedQuery) || lowercasedName2.includes(lowercasedQuery)) {
 
             return singleReview
 
@@ -34,10 +35,10 @@ export default function AllReviews() {
         fetchAllReviews();
     }, [])
     return (
-        <div class="page-container">
-            <div class="center">
+        <div className="page-container">
+            <div className="center">
            
-                <form class="searchBar">
+                <form className="searchBar">
                     <label htmlFor="search-query">Search: </label>
                     <input
                         name="search-query"
@@ -51,21 +52,21 @@ export default function AllReviews() {
                     ></input>
                 </form>
              
-                <div class="reviews-container">
+                <div className="reviews-container">
                     {
                         filteredReviews.length ? filteredReviews.map((Review, idx) => {
                             return (
                                 <div key={idx}>
-                                    <div class="reviewCard">
-                                        <div class="review">
-                                            <div class="center">
+                                    <div className="reviewCard">
+                                        <div className="review">
+                                            <div className="center">
                                                 <h3>{Review.title}</h3>
                                                 <h4>{Review.ideaName}</h4>
                                                 <h3>{Review.review}</h3>
                                                 <h4>By: {Review.author}</h4>
                                                 <h2>Rating: {Review.rating}</h2>
                                             </div>
-                                            <div class="detailsButton">
+                                            <div className="detailsButton">
                                                 <Link to={`/post/${Review.reviewId}`}>
                                                     <button >Click Here For More Details</button>
                                                 </Link>

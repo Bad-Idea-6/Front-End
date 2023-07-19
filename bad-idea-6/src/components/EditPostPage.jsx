@@ -69,6 +69,7 @@ const id = pulledId.reviewId
           <input
             name="rating"
             type="number"
+            min="1" max="5"
             placeholder="rating 1-5"
             onChange={(e) => {
               setRating(e.target.value);
