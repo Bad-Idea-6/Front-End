@@ -83,14 +83,7 @@ export default function userLogin(props) {
                                 </button>
 
 
-                                <button onClick={(e) => {
-                                    e.preventDefault()
-                                    setUsernameInput("admin")
-                                    setPasswordInput("password")
-                                }
-                                }
-                                >Admin
-                                </button>
+                               
                             </div>
                         </form>
                     </div>
