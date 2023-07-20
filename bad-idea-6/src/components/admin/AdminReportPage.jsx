@@ -77,15 +77,15 @@ export default function AdminReportPage() {
                       <h3>{rev.author}</h3>
                       <h3 id="textWrap">{rev.review}</h3>
                       <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        deleteReview(rev.reviewId);
-                      }}>Delete</button>
+                        onClick={(e) => {
+                          e.preventDefault();
+                          deleteReview(rev.reviewId);
+                        }}>Delete</button>
                       <button
-                      onClick={(e)=>{
-                        e.preventDefault
-                        resolveReport(rev.reviewId)
-                      }}
+                        onClick={(e) => {
+                          e.preventDefault
+                          resolveReport(rev.reviewId)
+                        }}
                       >Resolve</button>
                     </div>
                   </>

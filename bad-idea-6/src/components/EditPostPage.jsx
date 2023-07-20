@@ -10,7 +10,7 @@ function EditPostPage() {
   const [token, setToken] = useState("");
 
   const pulledId = useParams();
-const id = pulledId.reviewId
+  const id = pulledId.reviewId
   console.log("made it into the webpage!!!");
 
   async function patchReview(event) {
@@ -41,7 +41,7 @@ const id = pulledId.reviewId
     <>
       <div>
         <h1>Edit Post</h1>
-        <form onSubmit={patchReview}>
+        <form className="newPost" onSubmit={patchReview}>
           <input
             name="idea name"
             type="text"
