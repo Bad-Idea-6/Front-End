@@ -44,6 +44,7 @@ export default function userLogin(props) {
                     localStorage.setItem("is_admin", data.is_admin)
                 }
                 console.log("Login fired success")
+                window.location.reload(false);
                 navigate("/")
             }
 
@@ -70,7 +71,7 @@ export default function userLogin(props) {
 
 
                                 <input name="Password"
-                                    type="text"
+                                    type="password"
                                     placeholder="Input Password Here"
                                     onChange={(e) => {
                                         setPasswordInput(e.target.value)
@@ -98,3 +99,7 @@ export default function userLogin(props) {
         </div>
     )
 }
+
+
+
+

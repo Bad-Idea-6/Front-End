@@ -33,6 +33,7 @@ export default function LeaveComment(props) {
       console.log("this is response", response);
       const data = await response.json();
       console.log(data, "this is send comment data");
+      window.location.reload(false);
     }
     catch (error) {
       console.log(error);

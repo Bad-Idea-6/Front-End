@@ -6,6 +6,7 @@ export default function Logout(props) {
   const handleLogout = () => {
     localStorage.clear()
     props.setToken("")
+    window.location.reload(false);
 
   };
 
