@@ -67,7 +67,7 @@ const SingleReview = () => {
       return "N/A";
     }
   }
-  async function deleteReview() {
+  async function deleteReview(id) {
     try {
       const response = await fetch(`${BASEURL}/delete/review`, {
         method: "DELETE",
@@ -77,6 +77,7 @@ const SingleReview = () => {
         },
         body: JSON.stringify({
           reviewId: reviewId,
+          reviewOwnerId: id
         }),
       });
       const result = await response.json();
@@ -110,7 +111,7 @@ const SingleReview = () => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          deleteReview();
+                          deleteReview(review.authorId);
                         }}
                       >
                         {" "}
