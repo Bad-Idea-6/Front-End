@@ -10,7 +10,7 @@ function EditPostPage() {
   const [token, setToken] = useState("");
 
   const pulledId = useParams();
-  const id = pulledId.reviewId
+  const id = pulledId.reviewId;
   console.log("made it into the webpage!!!");
 
   async function patchReview(event) {
@@ -34,6 +34,23 @@ function EditPostPage() {
       const data = await response.json();
     } catch (error) {
       console.log("PATCH review error", error);
+    }
+  }
+  async function deleteReview(Id) {
+    try {
+      const response = await fetch(`${BASEURL}/delete/review`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${currentToken}`,
+        },
+        body: JSON.stringify({
+          reviewId: Id,
+        }),
+      });
+      const result = await response.json();
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -69,7 +86,8 @@ function EditPostPage() {
           <input
             name="rating"
             type="number"
-            min="1" max="5"
+            min="1"
+            max="5"
             placeholder="rating 1-5"
             onChange={(e) => {
               setRating(e.target.value);
@@ -78,6 +96,14 @@ function EditPostPage() {
 
           <input type="submit" value={"submit"} />
         </form>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            deleteReview(id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </>
   );

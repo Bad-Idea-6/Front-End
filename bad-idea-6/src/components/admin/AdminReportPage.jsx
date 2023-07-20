@@ -64,7 +64,7 @@ export default function AdminReportPage() {
   return (
     <>
       <div>
-        <h1>Reported Posts</h1>
+        <h1 className="center">Reported Posts</h1>
         {allReview && allReview.length ? (
           allReview.map((rev, idx) => {
             // console.log(rev);

@@ -12,8 +12,9 @@ const SingleReview = () => {
   const [review, setReview] = useState(null);
   const [messages, setMessages] = useState([]);
   const { reviewId } = useParams();
-  const storedUsername = localStorage.getItem("username")
-  const storedIsAdmin = localStorage.getItem("is_admin")
+  const storedUsername = localStorage.getItem("username");
+  const storedIsAdmin = localStorage.getItem("is_admin");
+  const navigate = useNavigate()
   useEffect(() => {
     async function fetchReviewAndMessages() {
       try {
@@ -35,15 +36,17 @@ const SingleReview = () => {
 
     async function fetchMessages() {
       try {
-        const response = await fetch(`${APIURL}/messages/all-messages/${reviewId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `${APIURL}/messages/all-messages/${reviewId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const messagesData = await response.json();
         setMessages(messagesData);
-
       } catch (error) {
         console.log(error);
       }
@@ -53,14 +56,35 @@ const SingleReview = () => {
   }, [reviewId]);
 
   function ratingsAVG() {
-    let numOfRatings = messages.length
-    let totalRatingsSum = 0
-    for (let i = 0; i < messages.length; i++) {
-      totalRatingsSum += messages[i].rating
+    if (messages.length) {
+      let numOfRatings = messages.length;
+      let totalRatingsSum = 0;
+      for (let i = 0; i < messages.length; i++) {
+        totalRatingsSum += messages[i].rating;
+      }
+      return totalRatingsSum / numOfRatings;
+    } else {
+      return "N/A";
     }
-    return totalRatingsSum / numOfRatings
   }
-
+  async function deleteReview() {
+    try {
+      const response = await fetch(`${BASEURL}/delete/review`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${currentToken}`,
+        },
+        body: JSON.stringify({
+          reviewId: reviewId,
+        }),
+      });
+      const result = await response.json();
+      navigate("/")
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <div className="reviews-container">
@@ -75,13 +99,31 @@ const SingleReview = () => {
                   <h3>User: {review.author}</h3>
                   <h3>Average Rating: {ratingsAVG()}</h3>
                   {/* <img src={rev.imageUrl}></img> */}
-                  {review.author === storedUsername || storedIsAdmin === "true" ?
-                    <button>
-                      <Link to={`/editPost/${review.reviewId}`}>edit post</Link>
-                    </button>
-                    : currentToken ? <div className="comment-container"><LeaveComment id={review.reviewId} /></div>
-                      : <h2>Log In to leave a comment</h2>
-                  }
+                  {review.author === storedUsername ||
+                  storedIsAdmin === "true" ? (
+                    <div>
+                      <button>
+                        <Link to={`/editPost/${review.reviewId}`}>
+                          edit post
+                        </Link>
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          deleteReview();
+                        }}
+                      >
+                        {" "}
+                        Delete
+                      </button>
+                    </div>
+                  ) : currentToken ? (
+                    <div className="comment-container">
+                      <LeaveComment id={review.reviewId} />
+                    </div>
+                  ) : (
+                    <h2>Log In to leave a comment</h2>
+                  )}
                   <Report id={review.reviewId} />
                 </div>
                 <h2 id="messages-text">Messages</h2>
